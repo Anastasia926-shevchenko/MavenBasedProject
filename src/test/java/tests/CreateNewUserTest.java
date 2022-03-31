@@ -47,5 +47,4 @@ public class CreateNewUserTest extends WebDriverFactory {
         createAccountPage.fillFormForCreatingUser(person.getFirstName(), person.getLastName(), person.getPassword(), "623 Pendergast Court", "Florida", "Florida", "33015", person.getTelephoneNumber());
         new MyAccountPage(driver).checkOnPage();
     }
-
 }

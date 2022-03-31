@@ -51,7 +51,6 @@ public class HomePage {
         wait.pollingEvery(Duration.ofSeconds(3));
         wait.withTimeout(Duration.ofSeconds(30));
         wait.ignoring(NoSuchElementException.class);
-        //wait.until(ExpectedConditions.elementToBeClickable(signInButton));
         return this;
     }
 }

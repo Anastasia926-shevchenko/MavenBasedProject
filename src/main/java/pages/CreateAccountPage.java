@@ -54,4 +54,5 @@ public class CreateAccountPage {
         driver.findElement(submitButton).click();
         return new MyAccountPage(driver);
     }
+
 }

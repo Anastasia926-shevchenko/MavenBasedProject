@@ -7,7 +7,6 @@ import pages.ContactUsPage;
 import pages.HomePage;
 import utils.PropertyReader;
 import utils.WebDriverUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
