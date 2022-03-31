@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +15,11 @@ public class ContactUsPage {
         this.driver = driver;
     }
 
+    @Step
     public ContactUsPage checkOnPage() {
         WebElement navigationPanel = driver.findElement(navigationPanelLocator);
         Assertions.assertTrue(navigationPanel.isDisplayed());
         Assertions.assertEquals("CUSTOMER SERVICE - CONTACT US", navigationPanel.getText());
         return this;
     }
-
 }

@@ -1,13 +1,10 @@
 package tests;
-
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class PrimitiveTest {
     @Test
     public void sumTest(){
-        Assert.assertEquals(11,10+1);
+        Assertions.assertEquals(11,10+1);
     }
-
-
 }
