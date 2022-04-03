@@ -5,6 +5,8 @@ import io.codearte.jfairy.producer.person.Person;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.AuthorizationPage;
 import pages.CreateAccountPage;
 import pages.HomePage;
@@ -19,6 +21,7 @@ import java.nio.file.Files;
 public class CreateNewUserTest extends WebDriverFactory {
     Fairy fairy = Fairy.create();
     Person person = fairy.person();
+    Logger logger = LoggerFactory.getLogger(CreateNewUserTest.class);
 
     @AfterEach
     public void allureAttachments() {
@@ -37,6 +40,7 @@ public class CreateNewUserTest extends WebDriverFactory {
     @Description("Creating new user")
     @Test
     public void creatingUser() {
+        logger.info("This test create new user");
         driver.get(PropertyReader.BASEURL);
         HomePage homePage = new HomePage(driver).waitOnPage();
         AuthorizationPage authorizationPage = homePage.clickSignIn();

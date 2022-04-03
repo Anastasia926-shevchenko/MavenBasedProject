@@ -3,6 +3,8 @@ package tests;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.ContactUsPage;
 import pages.HomePage;
 import utils.PropertyReader;
@@ -12,6 +14,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class OpenContactUsPage extends WebDriverFactory {
+
+    Logger logger = LoggerFactory.getLogger(OpenContactUsPage.class);
 
     @AfterEach
     public void allureAttachments() {
@@ -30,6 +34,7 @@ public class OpenContactUsPage extends WebDriverFactory {
     @Description("Open contact us page")
     @Test
     public void moveToContactPage() {
+        logger.info("This test open contact us page");
         driver.get(PropertyReader.BASEURL);
         HomePage homePage = new HomePage(driver).waitOnPage();
         homePage.checkOnPage();
