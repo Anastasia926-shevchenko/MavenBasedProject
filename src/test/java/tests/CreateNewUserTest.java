@@ -7,10 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages.AuthorizationPage;
-import pages.CreateAccountPage;
-import pages.HomePage;
-import pages.MyAccountPage;
+import pages.*;
 import utils.PropertyReader;
 import utils.WebDriverUtils;
 
@@ -42,9 +39,8 @@ public class CreateNewUserTest extends WebDriverFactory {
     public void creatingUser() {
         logger.info("This test create new user");
         driver.get(PropertyReader.BASEURL);
-        HomePage homePage = new HomePage(driver).waitOnPage();
-        AuthorizationPage authorizationPage = homePage.clickSignIn();
-        authorizationPage.checkOnPage();
+        BasePage basePage = new BasePage(driver).waitOnPage();
+        AuthorizationPage authorizationPage = basePage.clickSignIn();
         CreateAccountPage createAccountPage = authorizationPage.openRegistrationPage(person.getCompanyEmail());
         createAccountPage.checkOpeningRegistrationPage();
         createAccountPage.waitPage();

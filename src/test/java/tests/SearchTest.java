@@ -1,21 +1,21 @@
 package tests;
 
-import io.qameta.allure.*;
+import io.qameta.allure.Allure;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import pages.BasePage;
-import pages.ContactUsPage;
+import pages.HomePage;
+import pages.SearchPage;
 import utils.PropertyReader;
 import utils.WebDriverUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
-public class OpenContactUsPage extends WebDriverFactory {
+public class SearchTest extends WebDriverFactory {
 
-    Logger logger = LoggerFactory.getLogger(OpenContactUsPage.class);
 
     @AfterEach
     public void allureAttachments() {
@@ -27,17 +27,15 @@ public class OpenContactUsPage extends WebDriverFactory {
         }
     }
 
-    @Epic("Website store")
-    @Feature("User actions on website")
-    @Story("Opening contacts")
-    @Issue("JRE-2")
-    @Description("Open contact us page")
     @Test
-    public void moveToContactPage() {
-        logger.info("This test open contact us page");
+    public void searchOfGoods() {
         driver.get(PropertyReader.BASEURL);
         BasePage basePage = new BasePage(driver).waitOnPage();
-        ContactUsPage contactUsPage = basePage.clickContactUsButton();
-        contactUsPage.checkOnPage();
+        basePage.inputInSearchField("dress");
+        SearchPage searchPage = basePage.pressSearchButton();
+        searchPage.waitOfSearchLabel();
+        Assertions.assertTrue(searchPage.searchIsOpened());
+        Assertions.assertTrue(searchPage.sortByIsPresent());
+        searchPage.selectSortingOption("Price: Lowest first");
     }
 }

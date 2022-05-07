@@ -7,10 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class AuthorizationPage {
+public class AuthorizationPage extends BasePage {
     private final String pageURL = "http://automationpractice.com/index.php?controller=authentication";
-    private final WebDriver driver;
-    public By signInLocator = By.id("SubmitLogin");
     public By emailInputLocator = By.cssSelector("input#email");
     public By passwordInputLocator = By.xpath("//input[@id='passwd']");
     public By navigationPanelLocator = By.cssSelector("span.navigation_page");
@@ -18,7 +16,8 @@ public class AuthorizationPage {
     public By createNewAccountButton = By.xpath("//*[@id='SubmitCreate']");
 
     public AuthorizationPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+        checkOnPage();
     }
 
     @Step

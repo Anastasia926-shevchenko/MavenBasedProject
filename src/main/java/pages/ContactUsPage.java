@@ -11,7 +11,6 @@ public class ContactUsPage {
     private final WebDriver driver;
     public By navigationPanelLocator = By.xpath("//h1[@class='page-heading bottom-indent' and contains(text(), 'Customer service - Contact us')]");
 
-
     public ContactUsPage(WebDriver driver) {
         this.driver = driver;
     }
