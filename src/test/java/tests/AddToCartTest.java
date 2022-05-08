@@ -1,15 +1,18 @@
 package tests;
-
+import org.junit.jupiter.api.Assertions;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import pages.BasePage;
 import pages.CartPage;
 import utils.JSONUtils;
 import utils.PropertyReader;
+
 import java.io.IOException;
+
 import org.openqa.selenium.Cookie;
 
-public class AddToCartTest extends WebDriverFactory{
+public class AddToCartTest extends WebDriverFactory {
+    private final String TOTAL_AMOUNT = "$78.99";
 
     @Test
     public void addToCartWithCookies() throws IOException {
@@ -23,6 +26,7 @@ public class AddToCartTest extends WebDriverFactory{
         driver.manage().addCookie(cookie);
         driver.navigate().refresh();
         CartPage cartPage = new BasePage(driver).openFolder();
-        cartPage.checkTotalAmount();
+        String cartAmount = cartPage.getTotalAmount();
+        Assertions.assertEquals(TOTAL_AMOUNT, cartAmount);
     }
 }
