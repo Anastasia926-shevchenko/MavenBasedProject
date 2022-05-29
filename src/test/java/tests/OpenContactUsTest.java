@@ -13,9 +13,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
-public class OpenContactUsPage extends WebDriverFactory {
+public class OpenContactUsTest extends WebDriverFactory {
 
-    Logger logger = LoggerFactory.getLogger(OpenContactUsPage.class);
+    Logger logger = LoggerFactory.getLogger(OpenContactUsTest.class);
 
     @AfterEach
     public void allureAttachments() {
