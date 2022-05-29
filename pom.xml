@@ -123,7 +123,7 @@
                 <reportVersion>2.6.0</reportVersion>
             </configuration>
         </plugin>
-             
+            
     </plugins>
     </build>
 </project>
