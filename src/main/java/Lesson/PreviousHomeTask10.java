@@ -1,4 +1,4 @@
-package Lesson13;
+package Lesson;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
